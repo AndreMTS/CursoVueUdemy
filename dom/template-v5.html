@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{titulo}}</p> <!-- Atualiza o valor somente a primeira vez--->
+    <p>{{saudacao()}}</p>
+
+    <a v-bind:href="link" target="_blank">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Olá Vue!',
+            link: 'http://google.com.br' //link
+        },
+        methods: {
+            saudacao() {
+                this.titulo = 'Bom dia';
+                return this.titulo
+            }
+        }
+    })
+</script>
+
+<style>
+    #app {
+        font-size: 52px;
+    }
+</style>
