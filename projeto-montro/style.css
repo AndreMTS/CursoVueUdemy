@@ -1,0 +1,136 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel {
+    margin: 18px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*Areas de pontos*/
+
+.scores {
+    display: flex;
+}
+
+.score {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 300;
+    font: size 1.6em;
+}
+
+.barra-vida {
+    width: 80%;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+
+.barra-vida .vida {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: green
+}
+
+.barra-vida .vida.perigo {
+    background-color: red
+}
+
+/* Area de resultados */
+
+.resultado {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+
+}
+
+.resultado .ganhou {
+    color: green;
+}
+
+.resultado .perdeu {
+    color: rgb(255, 0, 0);
+}
+
+/* Areas dos controles */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border: 0.1rem solid;
+}
+
+.ataque {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.ataque-especial {
+    background-color: rgb(255, 145, 0);
+    color: black;
+}
+
+.curar {
+    background-color: rgb(0, 190, 48);
+    color: #fff;
+}
+
+.desistir {
+    background-color: #eee;
+    color: black;
+}
+
+.iniciar-jogo {
+    background-color: blue;
+    color: #fff;
+}
+
+/* Areas do logs */
+
+.logs ul {
+    display:flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.logs ul li {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0px;
+    padding: 3px 0px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+.classeJogador {
+    background-color: #4253afaa;
+    color:#fff;
+}
+.classeMonstro {
+    background-color: #f80000aa;
+    color:#fff;
+}

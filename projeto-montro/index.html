@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Matados de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <!--Jogador-->
+            <div class="score">
+                <h1>Jogador</h1>
+                <div class="barra-vida">
+                    <div class="vida" 
+                                :class="{perigo: vidaJogador < 20}" 
+                                :style="{width: vidaJogador + '%'}">
+                    </div>
+                </div>
+                <div>{{ vidaJogador }}%</div>
+            </div>
+            <!--Monstro-->
+            <div class="score">
+                <h1>Monstro</h1>
+                <div class="barra-vida">
+                    <div class="vida" 
+                                :class="{perigo: vidaMonstro < 20}" 
+                                :style="{width: vidaMonstro + '%'}">
+                    </div>
+                </div>
+                <div>{{ vidaMonstro }}%</div>
+            </div>
+        </div>
+        <div v-if="mostraResultado" class="panel resultado">
+            <div v-if="vidaMonstro == 0" class="ganhou">Você ganhou!! :)</div>
+            <div v-else class="perdeu">Você perdeu!! :(</div>
+        </div>
+        <div class="panel buttons">
+            <template v-if="partidaAtiva">
+                <button @click="ataque(false)" class="btn ataque">Ataque</button>
+                <button @click="ataque(true)" class="btn ataque-especial">Ataque especial</button>
+                <button @click="curarEferir" class="btn curar">Curar</button>
+                <button @click="partidaAtiva = false" 
+                            class="btn desistir">Desistir</button>
+            </template>
+            <button @click="startGame" v-else 
+                            class="btn iniciar-jogo">Iniciar jogo</button>
+        </div>
+         <div v-if="logs.length" class="panel logs">
+            <ul>
+                <li v-for="log in logs"class="log" :class="log.classe">
+                    {{log.texto}}
+                </li>
+            </ul>
+         </div> <!--so monstra a div quando for adicionado o primeirolog -->
+
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
